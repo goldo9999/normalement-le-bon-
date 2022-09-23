@@ -187,7 +187,7 @@ oxi:addButton("oxi cheats", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/GoldoCheat", true))()
 end)
 AdminCmds:addButton("admin cmds", function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/Goldo1236/cheats/main/admin%20script", true))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/AdminCheat", true))()
 end)
 
 --visual
