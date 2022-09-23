@@ -44,8 +44,6 @@ end
 
 
 
-
-
 local TpClicOn = false 
 
 
@@ -132,7 +130,7 @@ end)
 
 
 -- init
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Goldo1236/anonymous/main/library.md"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/oxilegeek/gui-creator/main/gui%20creator"))()
 local Cheat = library.new("goldo cheats", 5013109572)
 
 
@@ -182,14 +180,14 @@ end)
 
 -- cheats
 local page3 = Cheat:addPage("cheats", 5012544693)
-local Goldo = page3:addSection("Goldo")
+local oxi = page3:addSection("oxi")
 local AdminCmds = page3:addSection("admin cmds")
 
-Goldo:addButton("Goldo cheats", function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/GoldoCheat", true))()
+oxi:addButton("oxi cheats", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/oxigeeklecheater/oxiscript/main/oxiscript", true))()
 end)
 AdminCmds:addButton("admin cmds", function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/AdminCheat", true))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Goldo1236/cheats/main/admin%20script", true))()
 end)
 
 --visual
@@ -215,7 +213,7 @@ local page2 = Cheat:addPage("paramètres", 5012544693)
 local parametres = page2:addSection("paramètres")
 
 
-parametres:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
+parametres:addKeybind("Toggle Keybind", Enum.KeyCode.PageUp, function()
 	Cheat:toggle()
 end, function()
 end)
