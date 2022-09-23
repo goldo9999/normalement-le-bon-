@@ -44,6 +44,8 @@ end
 
 
 
+
+
 local TpClicOn = false 
 
 
@@ -98,6 +100,18 @@ local function FLY()
 		game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
 	end)
 end
+
+MOUSE.KeyDown:connect(function(KEY)
+	if KEY:lower() == 'w' then
+		CONTROL.F = 1
+	elseif KEY:lower() == 's' then
+		CONTROL.B = -1
+	elseif KEY:lower() == 'a' then
+		CONTROL.L = -1 
+	elseif KEY:lower() == 'd' then 
+		CONTROL.R = 1
+	end
+end)
 
 MOUSE.KeyDown:connect(function(KEY)
 	if KEY:lower() == 'w' then
