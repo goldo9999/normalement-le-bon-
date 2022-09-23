@@ -130,7 +130,7 @@ end)
 
 
 -- init
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/oxilegeek/gui-creator/main/gui%20creator"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/library"))()
 local Cheat = library.new("goldo cheats", 5013109572)
 
 
