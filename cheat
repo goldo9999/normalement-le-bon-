@@ -113,18 +113,6 @@ MOUSE.KeyDown:connect(function(KEY)
 	end
 end)
 
-MOUSE.KeyDown:connect(function(KEY)
-	if KEY:lower() == 'w' then
-		CONTROL.F = 1
-	elseif KEY:lower() == 's' then
-		CONTROL.B = -1
-	elseif KEY:lower() == 'a' then
-		CONTROL.L = -1 
-	elseif KEY:lower() == 'd' then 
-		CONTROL.R = 1
-	end
-end)
-
 MOUSE.KeyUp:connect(function(KEY)
 	if KEY:lower() == 'w' then
 		CONTROL.F = 0
@@ -136,7 +124,6 @@ MOUSE.KeyUp:connect(function(KEY)
 		CONTROL.R = 0
 	end
 end)
-
 
 
 
@@ -227,7 +214,7 @@ local page2 = Cheat:addPage("paramètres", 5012544693)
 local parametres = page2:addSection("paramètres")
 
 
-parametres:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
+parametres:addKeybind("Toggle Keybind", Enum.KeyCode.PageUp, function()
 	Cheat:toggle()
 end, function()
 end)
