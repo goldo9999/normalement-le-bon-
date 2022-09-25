@@ -10,39 +10,6 @@
 
 
 
-
-	local AcessTable = {
-		426302615, --[[Goldo]]
-		
-	}
-
-
-
-	local Acess = false
-
-	for i, v in pairs(AcessTable) do
-		if game.Players.LocalPlayer.UserId == v then
-			Acess = true
-		end
-	end
-
-	if not Acess then
-		print("refused")
-		--game.CoreGui:FindFirstChild(name).Main.Visible = false
-		--venyx:Notify("You're not whitelisted", "Do you want to buy the cheat ?", function(value)
-		--	if value then
-		--		print(game.PlaceId)
-		--		game:GetService("TeleportService"):Teleport(31285342 , game.Players.LocalPlayer)
-		--	end
-		--end)
-		return
-	else
-		print("Valid ^^")
-	end
-
-
-
-
 	-- Venyx Ui
 	-- init
 	local player = game.Players.LocalPlayer
