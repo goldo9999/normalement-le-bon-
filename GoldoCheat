@@ -8777,7 +8777,7 @@ This script is designed to be used is a regular script. In a local script it wil
 	end)
 
 	BasicSetting:addButton("Refresh Gui", function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/oxilegeek/oxi-cheats/main/oxi%20script", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/GoldoCheat", true))()
 	end)
 
 	BasicSetting:addButton("Rejoin Game", function()
