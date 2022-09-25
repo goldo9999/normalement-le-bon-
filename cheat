@@ -26,13 +26,24 @@ end
 
 if not Acess then
 	print("refused")
-	--game.CoreGui:FindFirstChild(name).Main.Visible = false
-	--venyx:Notify("You're not whitelisted", "Do you want to buy the cheat ?", function(value)
-	--	if value then
-	--		print(game.PlaceId)
-	--		game:GetService("TeleportService"):Teleport(31285342 , game.Players.LocalPlayer)
-	--	end
-	--end)
+	local gui = Instance.new("ScreenGui")
+	gui.Parent = game.Players.LocalPlayer.PlayerGui
+	local text = Instance.new("TextLabel")
+	text.Parent = gui
+	text.TextColor3 = Color3.fromRGB(0, 0, 0)
+	text.Text = "Vous n'avez pas accès à ce cheat."
+	text.AnchorPoint = Vector2.new(0.5, 0)
+	text.Size = UDim2.new(0.6, 0, 0.1, 0)
+	text.Position = UDim2.new(0.5, 0, 0.05, 0)
+	text.TextScaled = true
+	text.BackgroundColor3 = Color3.fromRGB(155, 155, 155)
+	local Round = Instance.new("UICorner")
+	Round.Parent = text
+	Round.CornerRadius = UDim.new(0.1, 0)
+
+	
+	wait(3)
+	gui:Destroy()
 	return
 else
 	print("Valid ^^")
@@ -47,10 +58,6 @@ end
 
 
 local TpClicOn = false 
-
-
-
-
 
 
 
