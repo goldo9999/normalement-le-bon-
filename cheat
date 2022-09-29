@@ -13,7 +13,7 @@ local AcessTable = {
 	3250474823, --[[sacha (2iem compte)]]
 	3099334890, --[[Steve_0FF (compte de kiki)]]
 	2627162716, --[[Blight_Ps4 (compte a enzo)]]
-	
+
 }
 
 
@@ -43,7 +43,7 @@ if not Acess then
 	Round.Parent = text
 	Round.CornerRadius = UDim.new(0.1, 0)
 
-	
+
 	wait(3)
 	gui:Destroy()
 	return
@@ -200,6 +200,19 @@ end)
 AdminCmds:addButton("admin cmds", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/AdminCheat", true))()
 end)
+
+
+
+-- other games
+local page5 = Cheat:addPage("Other Games", 5012544693)
+local LegendsOfSpeed = page5:addSection("Legends Of Speed")
+
+LegendsOfSpeed:addButton("Legends Of Speed", function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/B38uEWsA", true))()
+end)
+
+
+
 
 --visual
 local page4 = Cheat:addPage("visual", 5012544693)
