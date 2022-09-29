@@ -205,12 +205,18 @@ end)
 
 -- other games
 local page5 = Cheat:addPage("Other Games", 5012544693)
+
 local LegendsOfSpeed = page5:addSection("Legends Of Speed")
 
 LegendsOfSpeed:addButton("Legends Of Speed", function()
 	loadstring(game:HttpGet("https://pastebin.com/raw/B38uEWsA", true))()
 end)
 
+local NinjaLegends = page5:addSection("Ninja Legends")
+
+NinjaLegends:addButton("Ninja Legends", function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/RjLQKZxZ", true))()
+end)
 
 
 
