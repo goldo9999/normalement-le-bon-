@@ -219,6 +219,11 @@ NinjaLegends:addButton("Ninja Legends", function()
 end)
 
 
+local PrisonLife = page5:addSection("Prsion Life")
+
+PrisonLife:addButton("Prison Life", function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/sht5u7k2", true))
+end)
 
 --visual
 local page4 = Cheat:addPage("visual", 5012544693)
