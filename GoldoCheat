@@ -385,10 +385,10 @@
 							BackgroundTransparency = 1,
 							AnchorPoint = Vector2.new(0.5,0),
 							Position = UDim2.new(0.5, 0, 0, 5),
-							Size = UDim2.new(0,70,0,70),
+							Size = UDim2.new(0,110,0,70),
 							ZIndex = 5,
 							ImageColor3 = Color3.new(1,1,1),
-							Image = "rbxassetid://10574963725",
+							Image = "rbxassetid://11670962039",
 
 						}),
 
@@ -9693,4 +9693,3 @@ This script is designed to be used is a regular script. In a local script it wil
 			return library
 		end
 	end
-
