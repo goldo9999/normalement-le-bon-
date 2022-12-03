@@ -1,677 +1,83 @@
-if (not game:IsLoaded()) then
-	game.Loaded:Wait();
+-- // Constants \\ --
+-- [ Services ] --
+local Services = setmetatable({}, {__index = function(Self, Index)
+local NewService = game.GetService(game, Index)
+if NewService then
+Self[Index] = NewService
 end
+return NewService
+end})
 
+-- [ LocalPlayer ] --
+local LocalPlayer = Services.Players.LocalPlayer
 
+-- // Functions \\ --
+local function PlayerAdded(Player)
+   local Detected = false
+   local Character;
+   local PrimaryPart;
 
+   local function CharacterAdded(NewCharacter)
+       Character = NewCharacter
+       repeat
+           wait()
+           PrimaryPart = NewCharacter:FindFirstChild("HumanoidRootPart")
+       until PrimaryPart
+       Detected = false
+   end
 
-
-
-local AcessTable = {
-	426302615,  --[[Goldo1236]]
-	780331817,  --[[jesuisBG12 (2iem compte de goldo)]]
-	3250474823, --[[sacha (2iem compte)]]
-	3099334890, --[[Steve_0FF (compte de kiki)]]
-	2627162716, --[[Blight_Ps4 (compte a enzo)]]
-	585504171,  --[[Ewen_mgt]]
-	2673879990, --[[Devix]]
-	3900980157, --[[coucoucestmoilollll (compte goldo)]]
-	473621325,  --[[ElyBui]]
-	3498828066, --[[devraytix]]
-
-}
-
-
-
-local Acess = false
-
-for i, v in pairs(AcessTable) do
-	if game.Players.LocalPlayer.UserId == v then
-		Acess = true
-	end
-end
-
-if not Acess then
-	print("refused")
-	local gui = Instance.new("ScreenGui")
-	gui.Parent = game.Players.LocalPlayer.PlayerGui
-	local text = Instance.new("TextLabel")
-	text.Parent = gui
-	text.TextColor3 = Color3.fromRGB(0, 0, 0)
-	text.Text = "You have no access to this cheat."
-	text.AnchorPoint = Vector2.new(0.5, 0)
-	text.Size = UDim2.new(0.6, 0, 0.1, 0)
-	text.Position = UDim2.new(0.5, 0, 0.05, 0)
-	text.TextScaled = true
-	text.BackgroundColor3 = Color3.fromRGB(155, 155, 155)
-	local Round = Instance.new("UICorner")
-	Round.Parent = text
-	Round.CornerRadius = UDim.new(0.1, 0)
-
-
-	wait(3)
-	gui:Destroy()
-	return
-else
-	print("Valid ^^")
-end
-
-
-
-
-
-
-
-
-
-local TpClicOn = false 
-
-
-
--- fonction
-
-_G.FLYING = false
-local CONTROL = {F = 0, B = 0, L = 0, R = 0}
-local lCONTROL = {F = 0, B = 0, L = 0, R = 0}
-local SPEED = 5
-local MOUSE = game.Players.LocalPlayer:GetMouse()
-local flySpeed = 50
-
-
-local function FLY()
-	local BG = Instance.new('BodyGyro', game.Players.LocalPlayer.Character.HumanoidRootPart)
-	local BV = Instance.new('BodyVelocity', game.Players.LocalPlayer.Character.HumanoidRootPart)
-	BG.P = 9e4
-	BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-	BG.cframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-	BV.velocity = Vector3.new(0, 0.1, 0)
-	BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
-
-
-	spawn(function()
-		repeat wait()
-			game.Players.LocalPlayer.Character.Humanoid.PlatformStand = true
-			if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
-				SPEED = flySpeed
-			elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
-				SPEED = 0
-			end
-			if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
-				BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-				lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
-			elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
-				BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-			else
-				BV.velocity = Vector3.new(0, 0.1, 0)
-			end
-			BG.cframe = game.Workspace.CurrentCamera.CoordinateFrame
-		until not _G.FLYING
-		CONTROL = {F = 0, B = 0, L = 0, R = 0}
-		lCONTROL = {F = 0, B = 0, L = 0, R = 0}
-		SPEED = 0
-		BG:destroy()
-		BV:destroy()
-		game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
-	end)
-end
-
-MOUSE.KeyDown:connect(function(KEY)
-	if KEY:lower() == 'w' then
-		CONTROL.F = 1
-	elseif KEY:lower() == 's' then
-		CONTROL.B = -1
-	elseif KEY:lower() == 'a' then
-		CONTROL.L = -1 
-	elseif KEY:lower() == 'd' then 
-		CONTROL.R = 1
-	end
-end)
-
-MOUSE.KeyUp:connect(function(KEY)
-	if KEY:lower() == 'w' then
-		CONTROL.F = 0
-	elseif KEY:lower() == 's' then
-		CONTROL.B = 0
-	elseif KEY:lower() == 'a' then
-		CONTROL.L = 0
-	elseif KEY:lower() == 'd' then
-		CONTROL.R = 0
-	end
-end)
-
-
-
-
-
-
-
--- init
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/library"))()
-local Cheat = library.new("goldo cheats", 5013109572)
-
-
-local function deleteGui()
-	game.CoreGui:FindFirstChild("goldo cheats"):Destroy()
-end
-
-
--- first page
-local page1 = Cheat:addPage("Général", 5012544693)
-local section1 = page1:addSection("général")
-
-
-section1:addButton("drop inv", function()
-	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-		v.Parent = game.Players.LocalPlayer.Character
-	end
-	wait(1)
-	game.Players.LocalPlayer.Character.Humanoid:Destroy()
-end)
-
-
-section1:addToggle("fly", nil, function(value)
-	_G.FLYING = value
-	FLY()
-end)
-
-section1:addToggle("Tp clic", nil, function(value)
-	if value == true then
-		TpClicOn = true
-	end
-	if value == false then
-		TpClicOn = false
-	end
-end)
-
-section1:addKeybind("touche tp", Enum.KeyCode.E, function()
-	if TpClicOn == true then
-		local mouse = game.Players.LocalPlayer:GetMouse()
-		if mouse.Target then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
-		end
-	end
-end)
-
-section1:addButton(Anti-Fling, function()
-    if (not game:IsLoaded()) then
-        game.Loaded:Wait();
-    end
-    
-    
-    
-    
-    
-    
-    local AcessTable = {
-        426302615,  --[[Goldo1236]]
-        780331817,  --[[jesuisBG12 (2iem compte de goldo)]]
-        3250474823, --[[sacha (2iem compte)]]
-        3099334890, --[[Steve_0FF (compte de kiki)]]
-        2627162716, --[[Blight_Ps4 (compte a enzo)]]
-        585504171,  --[[Ewen_mgt]]
-        2673879990, --[[Devix]]
-        3900980157, --[[coucoucestmoilollll (compte goldo)]]
-        473621325,  --[[ElyBui]]
-        3498828066, --[[devraytix]]
-    
-    }
-    
-    
-    
-    local Acess = false
-    
-    for i, v in pairs(AcessTable) do
-        if game.Players.LocalPlayer.UserId == v then
-            Acess = true
-        end
-    end
-    
-    if not Acess then
-        print("refused")
-        local gui = Instance.new("ScreenGui")
-        gui.Parent = game.Players.LocalPlayer.PlayerGui
-        local text = Instance.new("TextLabel")
-        text.Parent = gui
-        text.TextColor3 = Color3.fromRGB(0, 0, 0)
-        text.Text = "You have no access to this cheat."
-        text.AnchorPoint = Vector2.new(0.5, 0)
-        text.Size = UDim2.new(0.6, 0, 0.1, 0)
-        text.Position = UDim2.new(0.5, 0, 0.05, 0)
-        text.TextScaled = true
-        text.BackgroundColor3 = Color3.fromRGB(155, 155, 155)
-        local Round = Instance.new("UICorner")
-        Round.Parent = text
-        Round.CornerRadius = UDim.new(0.1, 0)
-    
-    
-        wait(3)
-        gui:Destroy()
-        return
-    else
-        print("Valid ^^")
-    end
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    local TpClicOn = false 
-    
-    
-    
-    -- fonction
-    
-    _G.FLYING = false
-    local CONTROL = {F = 0, B = 0, L = 0, R = 0}
-    local lCONTROL = {F = 0, B = 0, L = 0, R = 0}
-    local SPEED = 5
-    local MOUSE = game.Players.LocalPlayer:GetMouse()
-    local flySpeed = 50
-    
-    
-    local function FLY()
-        local BG = Instance.new('BodyGyro', game.Players.LocalPlayer.Character.HumanoidRootPart)
-        local BV = Instance.new('BodyVelocity', game.Players.LocalPlayer.Character.HumanoidRootPart)
-        BG.P = 9e4
-        BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-        BG.cframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-        BV.velocity = Vector3.new(0, 0.1, 0)
-        BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
-    
-    
-        spawn(function()
-            repeat wait()
-                game.Players.LocalPlayer.Character.Humanoid.PlatformStand = true
-                if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
-                    SPEED = flySpeed
-                elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
-                    SPEED = 0
-                end
-                if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
-                    BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-                    lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
-                elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
-                    BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-                else
-                    BV.velocity = Vector3.new(0, 0.1, 0)
-                end
-                BG.cframe = game.Workspace.CurrentCamera.CoordinateFrame
-            until not _G.FLYING
-            CONTROL = {F = 0, B = 0, L = 0, R = 0}
-            lCONTROL = {F = 0, B = 0, L = 0, R = 0}
-            SPEED = 0
-            BG:destroy()
-            BV:destroy()
-            game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
-        end)
-    end
-    
-    MOUSE.KeyDown:connect(function(KEY)
-        if KEY:lower() == 'w' then
-            CONTROL.F = 1
-        elseif KEY:lower() == 's' then
-            CONTROL.B = -1
-        elseif KEY:lower() == 'a' then
-            CONTROL.L = -1 
-        elseif KEY:lower() == 'd' then 
-            CONTROL.R = 1
-        end
-    end)
-    
-    MOUSE.KeyUp:connect(function(KEY)
-        if KEY:lower() == 'w' then
-            CONTROL.F = 0
-        elseif KEY:lower() == 's' then
-            CONTROL.B = 0
-        elseif KEY:lower() == 'a' then
-            CONTROL.L = 0
-        elseif KEY:lower() == 'd' then
-            CONTROL.R = 0
-        end
-    end)
-    
-    
-    
-    
-    
-    
-    
-    -- init
-    local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/library"))()
-    local Cheat = library.new("goldo cheats", 5013109572)
-    
-    
-    local function deleteGui()
-        game.CoreGui:FindFirstChild("goldo cheats"):Destroy()
-    end
-    
-    
-    -- first page
-    local page1 = Cheat:addPage("Général", 5012544693)
-    local section1 = page1:addSection("général")
-    
-    
-    section1:addButton("drop inv", function()
-        for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-            v.Parent = game.Players.LocalPlayer.Character
-        end
-        wait(1)
-        game.Players.LocalPlayer.Character.Humanoid:Destroy()
-    end)
-    
-    
-    section1:addToggle("fly", nil, function(value)
-        _G.FLYING = value
-        FLY()
-    end)
-    
-    section1:addToggle("Tp clic", nil, function(value)
-        if value == true then
-            TpClicOn = true
-        end
-        if value == false then
-            TpClicOn = false
-        end
-    end)
-    
-    section1:addKeybind("touche tp", Enum.KeyCode.E, function()
-        if TpClicOn == true then
-            local mouse = game.Players.LocalPlayer:GetMouse()
-            if mouse.Target then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
-            end
-        end
-    end)
-    
-    section1:addButton("Anti-Fling", function()
-        -- // Constants \\ --
-    -- [ Services ] --
-    local Services = setmetatable({}, {__index = function(Self, Index)
-        local NewService = game.GetService(game, Index)
-        if NewService then
-        Self[Index] = NewService
-        end
-        return NewService
-        end})
-        
-        -- [ LocalPlayer ] --
-        local LocalPlayer = Services.Players.LocalPlayer
-        
-        -- // Functions \\ --
-        local function PlayerAdded(Player)
-           local Detected = false
-           local Character;
-           local PrimaryPart;
-        
-           local function CharacterAdded(NewCharacter)
-               Character = NewCharacter
-               repeat
-                   wait()
-                   PrimaryPart = NewCharacter:FindFirstChild("HumanoidRootPart")
-               until PrimaryPart
-               Detected = false
-           end
-        
-           CharacterAdded(Player.Character or Player.CharacterAdded:Wait())
-           Player.CharacterAdded:Connect(CharacterAdded)
-           Services.RunService.Heartbeat:Connect(function()
-               if (Character and Character:IsDescendantOf(workspace)) and (PrimaryPart and PrimaryPart:IsDescendantOf(Character)) then
-                   if PrimaryPart.AssemblyAngularVelocity.Magnitude > 50 or PrimaryPart.AssemblyLinearVelocity.Magnitude > 100 then
-                       if Detected == false then
-                           game.StarterGui:SetCore("ChatMakeSystemMessage", {
-                               Text = "Fling Exploit detected, Player: " .. tostring(Player);
-                               Color = Color3.fromRGB(255, 200, 0);
-                           })
-                       end
-                       Detected = true
-                       for i,v in ipairs(Character:GetDescendants()) do
-                           if v:IsA("BasePart") then
-                               v.CanCollide = false
-                               v.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
-                               v.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
-                               v.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0)
-                           end
-                       end
-                       PrimaryPart.CanCollide = false
-                       PrimaryPart.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
-                       PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
-                       PrimaryPart.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0)
+   CharacterAdded(Player.Character or Player.CharacterAdded:Wait())
+   Player.CharacterAdded:Connect(CharacterAdded)
+   Services.RunService.Heartbeat:Connect(function()
+       if (Character and Character:IsDescendantOf(workspace)) and (PrimaryPart and PrimaryPart:IsDescendantOf(Character)) then
+           if PrimaryPart.AssemblyAngularVelocity.Magnitude > 50 or PrimaryPart.AssemblyLinearVelocity.Magnitude > 100 then
+               if Detected == false then
+                   game.StarterGui:SetCore("ChatMakeSystemMessage", {
+                       Text = "Fling Exploit detected, Player: " .. tostring(Player);
+                       Color = Color3.fromRGB(255, 200, 0);
+                   })
+               end
+               Detected = true
+               for i,v in ipairs(Character:GetDescendants()) do
+                   if v:IsA("BasePart") then
+                       v.CanCollide = false
+                       v.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
+                       v.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+                       v.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0)
                    end
                end
-           end)
-        end
-        
-        -- // Event Listeners \\ --
-        for i,v in ipairs(Services.Players:GetPlayers()) do
-           if v ~= LocalPlayer then
-               PlayerAdded(v)
+               PrimaryPart.CanCollide = false
+               PrimaryPart.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
+               PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+               PrimaryPart.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0)
            end
-        end
-        Services.Players.PlayerAdded:Connect(PlayerAdded)
-        
-        local LastPosition = nil
-        Services.RunService.Heartbeat:Connect(function()
-           pcall(function()
-               local PrimaryPart = LocalPlayer.Character.PrimaryPart
-               if PrimaryPart.AssemblyLinearVelocity.Magnitude > 250 or PrimaryPart.AssemblyAngularVelocity.Magnitude > 250 then
-                   PrimaryPart.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
-                   PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
-                   PrimaryPart.CFrame = LastPosition
-        
-                   game.StarterGui:SetCore("ChatMakeSystemMessage", {
-                       Text = "You were flung. Neutralizing velocity.";
-                       Color = Color3.fromRGB(255, 0, 0);
-                   })
-               elseif PrimaryPart.AssemblyLinearVelocity.Magnitude < 50 or PrimaryPart.AssemblyAngularVelocity.Magnitude > 50 then
-                   LastPosition = PrimaryPart.CFrame
-               end
-           end)
-        end)
-    
-    
-    
-    -- fun
-    
-    local section2 = page1:addSection("fun")
-    section2:addButton("Fling", function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/0bqd2Axk", true))()
-    end)
-    
-    section2:addButton("Animation", function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/8zZiXjJJ", true))()
-    end)
-    
-    section2:addButton("Explosive ammunition", function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/kJVhmD45", true))()
-    end)
-    
-    
-    
-    -- cheats
-    local page3 = Cheat:addPage("cheats", 5012544693)
-    local Goldo = page3:addSection("Goldo")
-    local AdminCmds = page3:addSection("admin cmds")
-    
-    Goldo:addButton("Goldo cheats", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/GoldoCheat", true))()
-    end)
-    AdminCmds:addButton("admin cmds", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/AdminCheat", true))()
-    end)
-    
-    
-    
-    -- other games
-    local page5 = Cheat:addPage("Other Games", 5012544693)
-    
-    local LegendsOfSpeed = page5:addSection("Legends Of Speed")
-    
-    LegendsOfSpeed:addButton("Legends Of Speed", function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/B38uEWsA", true))()
-    end)
-    
-    local NinjaLegends = page5:addSection("Ninja Legends")
-    
-    NinjaLegends:addButton("Ninja Legends", function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/RjLQKZxZ", true))()
-    end)
-    
-    
-    local PrisonLife = page5:addSection("Prsion Life")
-    
-    PrisonLife:addButton("Prison Life", function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/sht5u7k2", true))()
-    end)
-    
-    --visual
-    local page4 = Cheat:addPage("visual", 5012544693)
-    local camera = page4:addSection("camera")
-    
-    
-    camera:addToggle("camera noclip", nil, function(value)
-        if value == true then
-            game.Players.LocalPlayer.DevCameraOcclusionMode = 1
-    
-        end
-        if value == false then
-            game.Players.LocalPlayer.DevCameraOcclusionMode = 0	
-        end
-    end)
-    
-    
-    
-    
-    -- paramètres
-    local page2 = Cheat:addPage("paramètres", 5012544693)
-    local parametres = page2:addSection("paramètres")
-    
-    
-    parametres:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
-        Cheat:toggle()
-    end, function()
-    end)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    game.CoreGui.ChildAdded:Connect(function(child)
-        if child.Name == "goldo cheats" then
-            deleteGui()
-        end
-    end)
-    
-    
-    -- load
-    Cheat:SelectPage(Cheat.pages[1], true)
-)
-    
+       end
+   end)
+end
 
+-- // Event Listeners \\ --
+for i,v in ipairs(Services.Players:GetPlayers()) do
+   if v ~= LocalPlayer then
+       PlayerAdded(v)
+   end
+end
+Services.Players.PlayerAdded:Connect(PlayerAdded)
 
+local LastPosition = nil
+Services.RunService.Heartbeat:Connect(function()
+   pcall(function()
+       local PrimaryPart = LocalPlayer.Character.PrimaryPart
+       if PrimaryPart.AssemblyLinearVelocity.Magnitude > 250 or PrimaryPart.AssemblyAngularVelocity.Magnitude > 250 then
+           PrimaryPart.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
+           PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+           PrimaryPart.CFrame = LastPosition
 
--- fun
-
-local section2 = page1:addSection("fun")
-section2:addButton("Fling", function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/0bqd2Axk", true))()
+           game.StarterGui:SetCore("ChatMakeSystemMessage", {
+               Text = "You were flung. Neutralizing velocity.";
+               Color = Color3.fromRGB(255, 0, 0);
+           })
+       elseif PrimaryPart.AssemblyLinearVelocity.Magnitude < 50 or PrimaryPart.AssemblyAngularVelocity.Magnitude > 50 then
+           LastPosition = PrimaryPart.CFrame
+       end
+   end)
 end)
-
-section2:addButton("Animation", function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/8zZiXjJJ", true))()
-end)
-
-section2:addButton("Explosive ammunition", function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/kJVhmD45", true))()
-end)
-
-
-
--- cheats
-local page3 = Cheat:addPage("cheats", 5012544693)
-local Goldo = page3:addSection("Goldo")
-local AdminCmds = page3:addSection("admin cmds")
-
-Goldo:addButton("Goldo cheats", function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/GoldoCheat", true))()
-end)
-AdminCmds:addButton("admin cmds", function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/AdminCheat", true))()
-end)
-
-
-
--- other games
-local page5 = Cheat:addPage("Other Games", 5012544693)
-
-local LegendsOfSpeed = page5:addSection("Legends Of Speed")
-
-LegendsOfSpeed:addButton("Legends Of Speed", function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/B38uEWsA", true))()
-end)
-
-local NinjaLegends = page5:addSection("Ninja Legends")
-
-NinjaLegends:addButton("Ninja Legends", function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/RjLQKZxZ", true))()
-end)
-
-
-local PrisonLife = page5:addSection("Prsion Life")
-
-PrisonLife:addButton("Prison Life", function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/sht5u7k2", true))()
-end)
-
---visual
-local page4 = Cheat:addPage("visual", 5012544693)
-local camera = page4:addSection("camera")
-
-
-camera:addToggle("camera noclip", nil, function(value)
-	if value == true then
-		game.Players.LocalPlayer.DevCameraOcclusionMode = 1
-
-	end
-	if value == false then
-		game.Players.LocalPlayer.DevCameraOcclusionMode = 0	
-	end
-end)
-
-
-
-
--- paramètres
-local page2 = Cheat:addPage("paramètres", 5012544693)
-local parametres = page2:addSection("paramètres")
-
-
-parametres:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
-	Cheat:toggle()
-end, function()
-end)
-
-
-
-
-
-
-
-
-
-game.CoreGui.ChildAdded:Connect(function(child)
-	if child.Name == "goldo cheats" then
-		deleteGui()
-	end
-end)
-
-
--- load
-Cheat:SelectPage(Cheat.pages[1], true)
