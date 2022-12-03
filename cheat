@@ -192,6 +192,11 @@ section1:addKeybind("touche tp", Enum.KeyCode.E, function()
 	end
 end)
 
+section1:addButton("Anti-Fling", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/Anti-Fling", true))()
+end)
+    
+
 
 
 -- fun
