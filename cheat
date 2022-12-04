@@ -196,7 +196,9 @@ section1:addButton("Anti-Fling", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/Anti-Fling", true))()
 end)
     
-
+section1:addButton("Anti-Fling2", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/Anti%20fling2, true"))()
+end)
 
 
 -- fun
