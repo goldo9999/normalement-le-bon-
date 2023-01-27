@@ -263,7 +263,7 @@ end)
 
 local Site55 = page5:addSection("Site 55")
 
-PrisonLife:addButton("Site 55", function()
+Site55:addButton("Site 55", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/Site55", true))()
 end)
 
