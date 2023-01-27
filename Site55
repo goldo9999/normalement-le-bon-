@@ -136,6 +136,14 @@ fireclickdetector(clickdetector)
 end)
 
 
+section1:addButton("Menotte", function()
+	local clickdetector = workspace.qGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+
 -- paramètres
 local page2 = Cheat:addPage("paramètres", 5012544693)
 local parametres = page2:addSection("paramètres")
