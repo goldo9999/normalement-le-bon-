@@ -130,7 +130,7 @@ end)
 local section1 = page1:addSection("Other")
 
 section1:addButton("AmmoBox", function()
-	local clickdetector = workspace.oGive.Part.ClickDetector
+	local clickdetector = workspace.pGive.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
