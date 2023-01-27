@@ -1,0 +1,155 @@
+if (not game:IsLoaded()) then
+	game.Loaded:Wait();
+end
+
+
+
+-- init
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/library"))()
+local Cheat = library.new("Site 55", 5013109572)
+
+
+local function deleteGui()
+	game.CoreGui:FindFirstChild("Site 55"):Destroy()
+end
+
+
+-- first page
+local page1 = Cheat:addPage("Give", 5012544693)
+local section1 = page1:addSection("Give gun")
+
+
+
+section1:addButton("Revolver", function()
+	local clickdetector = workspace.RevolverGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Solaris", function()
+	local clickdetector = workspace.aGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("The Little Friend", function()
+	local clickdetector = workspace.bGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("AK-47", function()
+	local clickdetector = workspace.cGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Desert Eagle", function()
+	local clickdetector = workspace.dGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("P90", function()
+	local clickdetector = workspace.gGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("IA2", function()
+	local clickdetector = workspace.hGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+
+local section1 = page1:addSection("Shield")
+
+
+section1:addButton("Shield", function()
+	local clickdetector = workspace.eGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Medkit", function()
+	local clickdetector = workspace.fGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+local section1 = page1:addSection("Card")
+
+
+section1:addButton("Card-1", function()
+	local clickdetector = workspace.oGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+section1:addButton("Card-2", function()
+	local clickdetector = workspace.jGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+section1:addButton("Card-3", function()
+	local clickdetector = workspace.kGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+section1:addButton("Card-4", function()
+	local clickdetector = workspace.lGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+section1:addButton("Card-5", function()
+	local clickdetector = workspace.mGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+section1:addButton("Card-Omni", function()
+	local clickdetector = workspace.nGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+-- paramètres
+local page2 = Cheat:addPage("paramètres", 5012544693)
+local parametres = page2:addSection("paramètres")
+
+
+parametres:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
+	Cheat:toggle()
+end, function()
+end)
+
+
+
+
+
+
+
+
+
+game.CoreGui.ChildAdded:Connect(function(child)
+	if child.Name == "Site 55" then
+		deleteGui()
+	end
+end)
+
+
+-- load
+Cheat:SelectPage(Cheat.pages[1], true)
