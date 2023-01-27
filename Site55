@@ -143,10 +143,55 @@ fireclickdetector(clickdetector)
 end)
 
 
+local section1 = page1:addSection("AI")
+
+section1:addButton("Ai Gunner", function()
+	local clickdetector = workspace.rGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Ai Tank", function()
+	local clickdetector = workspace.sGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Ai Mg", function()
+	local clickdetector = workspace.tGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Ai Sniper", function()
+	local clickdetector = workspace.uGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Ai Civi1", function()
+	local clickdetector = workspace.vGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Ai Civi2", function()
+	local clickdetector = workspace.wGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
 
 -- paramètres
 local page2 = Cheat:addPage("paramètres", 5012544693)
 local parametres = page2:addSection("paramètres")
+
 
 
 parametres:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
