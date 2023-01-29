@@ -136,6 +136,13 @@ fireclickdetector(clickdetector)
 end)
 
 
+section1:addButton("Flashbang", function()
+	local clickdetector = workspace.aeGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
 section1:addButton("Menotte", function()
 	local clickdetector = workspace.qGive.Part.ClickDetector
 
@@ -182,6 +189,92 @@ end)
 
 section1:addButton("Ai Civi2", function()
 	local clickdetector = workspace.wGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+
+local section1 = page1:addSection("Nouriture")
+
+
+section1:addButton("coffee", function()
+	local clickdetector = workspace.xGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Plat de nourriture", function()
+	local clickdetector = workspace.yGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Eau", function()
+	local clickdetector = workspace.zGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+
+local section1 = page1:addSection("Fun")
+
+
+section1:addButton("Knife", function()
+	local clickdetector = workspace.aaGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Carpet", function()
+	local clickdetector = workspace.abGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Snow Sword", function()
+	local clickdetector = workspace.acGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Snow Sword2", function()
+	local clickdetector = workspace.afGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+
+section1:addButton("Beach", function()
+	local clickdetector = workspace.adGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Boombox", function()
+	local clickdetector = workspace.agGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Speed", function()
+	local clickdetector = workspace.ahGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Jump", function()
+	local clickdetector = workspace.aiGive.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
