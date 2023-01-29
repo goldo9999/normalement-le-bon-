@@ -28,42 +28,42 @@ end)
 
 
 section1:addButton("Solaris", function()
-	local clickdetector = workspace.aGive.Part.ClickDetector
+	local clickdetector = workspace.Model.aa.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("The Little Friend", function()
-	local clickdetector = workspace.bGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ab.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("AK-47", function()
-	local clickdetector = workspace.cGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ac.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Desert Eagle", function()
-	local clickdetector = workspace.dGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ad.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("P90", function()
-	local clickdetector = workspace.gGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ae.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("IA2", function()
-	local clickdetector = workspace.hGive.Part.ClickDetector
+	local clickdetector = workspace.Model.af.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
@@ -74,14 +74,14 @@ local section1 = page1:addSection("Shield")
 
 
 section1:addButton("Shield", function()
-	local clickdetector = workspace.eGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ag.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Medkit", function()
-	local clickdetector = workspace.fGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ah.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
@@ -91,37 +91,37 @@ local section1 = page1:addSection("Card")
 
 
 section1:addButton("Card-1", function()
-	local clickdetector = workspace.oGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ai.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 section1:addButton("Card-2", function()
-	local clickdetector = workspace.jGive.Part.ClickDetector
+	local clickdetector = workspace.Model.aj.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 section1:addButton("Card-3", function()
-	local clickdetector = workspace.kGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ak.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 section1:addButton("Card-4", function()
-	local clickdetector = workspace.lGive.Part.ClickDetector
+	local clickdetector = workspace.Model.al.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 section1:addButton("Card-5", function()
-	local clickdetector = workspace.mGive.Part.ClickDetector
+	local clickdetector = workspace.Model.am.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 section1:addButton("Card-Omni", function()
-	local clickdetector = workspace.nGive.Part.ClickDetector
+	local clickdetector = workspace.Model.an.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
@@ -130,21 +130,21 @@ end)
 local section1 = page1:addSection("Other")
 
 section1:addButton("AmmoBox", function()
-	local clickdetector = workspace.pGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ao.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Flashbang", function()
-	local clickdetector = workspace.aeGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ap.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Menotte", function()
-	local clickdetector = workspace.qGive.Part.ClickDetector
+	local clickdetector = workspace.Model.aq.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
@@ -153,42 +153,42 @@ end)
 local section1 = page1:addSection("AI")
 
 section1:addButton("Ai Gunner", function()
-	local clickdetector = workspace.rGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ar.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Ai Tank", function()
-	local clickdetector = workspace.sGive.Part.ClickDetector
+	local clickdetector = workspace.Model.as.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Ai Mg", function()
-	local clickdetector = workspace.tGive.Part.ClickDetector
+	local clickdetector = workspace.Model.at.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Ai Sniper", function()
-	local clickdetector = workspace.uGive.Part.ClickDetector
+	local clickdetector = workspace.Model.au.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Ai Civi1", function()
-	local clickdetector = workspace.vGive.Part.ClickDetector
+	local clickdetector = workspace.Model.av.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Ai Civi2", function()
-	local clickdetector = workspace.wGive.Part.ClickDetector
+	local clickdetector = workspace.Model.aw.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
@@ -199,21 +199,21 @@ local section1 = page1:addSection("Nouriture")
 
 
 section1:addButton("coffee", function()
-	local clickdetector = workspace.xGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ax.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Plat de nourriture", function()
-	local clickdetector = workspace.yGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ay.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Eau", function()
-	local clickdetector = workspace.zGive.Part.ClickDetector
+	local clickdetector = workspace.Model.az.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
@@ -224,28 +224,28 @@ local section1 = page1:addSection("Fun")
 
 
 section1:addButton("Knife", function()
-	local clickdetector = workspace.aaGive.Part.ClickDetector
+	local clickdetector = workspace.Model.ba.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Carpet", function()
-	local clickdetector = workspace.abGive.Part.ClickDetector
+	local clickdetector = workspace.Model.bb.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Snow Sword", function()
-	local clickdetector = workspace.acGive.Part.ClickDetector
+	local clickdetector = workspace.Model.bc.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Snow Sword2", function()
-	local clickdetector = workspace.afGive.Part.ClickDetector
+	local clickdetector = workspace.Model.bd.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
@@ -253,28 +253,338 @@ end)
 
 
 section1:addButton("Beach", function()
-	local clickdetector = workspace.adGive.Part.ClickDetector
+	local clickdetector = workspace.Model.be.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Boombox", function()
-	local clickdetector = workspace.agGive.Part.ClickDetector
+	local clickdetector = workspace.Model.bf.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Speed", function()
-	local clickdetector = workspace.ahGive.Part.ClickDetector
+	local clickdetector = workspace.Model.bg.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
 section1:addButton("Jump", function()
-	local clickdetector = workspace.aiGive.Part.ClickDetector
+	local clickdetector = workspace.Model.bh.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+
+-- paramètres
+local page2 = Cheat:addPage("paramètres", 5012544693)
+local parametres = page2:addSection("paramètres")
+
+
+
+parametres:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
+	Cheat:toggle()
+end, function()
+end)
+
+
+
+
+
+
+
+
+
+game.CoreGui.ChildAdded:Connect(function(child)
+	if child.Name == "Site 55" then
+		deleteGui()
+	end
+end)
+
+
+-- load
+Cheat:SelectPage(Cheat.pages[1], true)if (not game:IsLoaded()) then
+	game.Loaded:Wait();
+end
+
+
+
+-- init
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/goldo9999/normalement-le-bon-/main/library"))()
+local Cheat = library.new("Site 55", 5013109572)
+
+
+local function deleteGui()
+	game.CoreGui:FindFirstChild("Site 55"):Destroy()
+end
+
+
+-- first page
+local page1 = Cheat:addPage("Give", 5012544693)
+local section1 = page1:addSection("Give gun")
+
+
+
+section1:addButton("Revolver", function()
+	local clickdetector = workspace.RevolverGive.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Solaris", function()
+	local clickdetector = workspace.aa.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("The Little Friend", function()
+	local clickdetector = workspace.ab.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("AK-47", function()
+	local clickdetector = workspace.ac.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Desert Eagle", function()
+	local clickdetector = workspace.ad.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("P90", function()
+	local clickdetector = workspace.ae.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("IA2", function()
+	local clickdetector = workspace.af.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+
+local section1 = page1:addSection("Shield")
+
+
+section1:addButton("Shield", function()
+	local clickdetector = workspace.ag.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Medkit", function()
+	local clickdetector = workspace.ah.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+local section1 = page1:addSection("Card")
+
+
+section1:addButton("Card-1", function()
+	local clickdetector = workspace.ai.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+section1:addButton("Card-2", function()
+	local clickdetector = workspace.aj.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+section1:addButton("Card-3", function()
+	local clickdetector = workspace.ak.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+section1:addButton("Card-4", function()
+	local clickdetector = workspace.al.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+section1:addButton("Card-5", function()
+	local clickdetector = workspace.am.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+section1:addButton("Card-Omni", function()
+	local clickdetector = workspace.an.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+local section1 = page1:addSection("Other")
+
+section1:addButton("AmmoBox", function()
+	local clickdetector = workspace.ao.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Flashbang", function()
+	local clickdetector = workspace.ap.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Menotte", function()
+	local clickdetector = workspace.aq.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+local section1 = page1:addSection("AI")
+
+section1:addButton("Ai Gunner", function()
+	local clickdetector = workspace.ar.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Ai Tank", function()
+	local clickdetector = workspace.as.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Ai Mg", function()
+	local clickdetector = workspace.at.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Ai Sniper", function()
+	local clickdetector = workspace.au.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Ai Civi1", function()
+	local clickdetector = workspace.av.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Ai Civi2", function()
+	local clickdetector = workspace.aw.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+
+local section1 = page1:addSection("Nouriture")
+
+
+section1:addButton("coffee", function()
+	local clickdetector = workspace.ax.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Plat de nourriture", function()
+	local clickdetector = workspace.ay.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Eau", function()
+	local clickdetector = workspace.az.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+
+local section1 = page1:addSection("Fun")
+
+
+section1:addButton("Knife", function()
+	local clickdetector = workspace.ba.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Carpet", function()
+	local clickdetector = workspace.bb.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Snow Sword", function()
+	local clickdetector = workspace.bc.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Snow Sword2", function()
+	local clickdetector = workspace.bd.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+
+section1:addButton("Beach", function()
+	local clickdetector = workspace.be.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Boombox", function()
+	local clickdetector = workspace.bf.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Speed", function()
+	local clickdetector = workspace.bg.Part.ClickDetector
+
+fireclickdetector(clickdetector)
+end)
+
+
+section1:addButton("Jump", function()
+	local clickdetector = workspace.bh.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
