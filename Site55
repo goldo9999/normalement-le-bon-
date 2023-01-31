@@ -530,31 +530,32 @@ end)
 
 
 
-local section1 = page1:addSection("Fun")
+local page2 = Cheat:addPage("Fun", 5012544693)
+local section2 = page2:addSection("Fun")
 
 
-section1:addButton("Knife", function()
+section2:addButton("Knife", function()
 	local clickdetector = workspace.ba.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
-section1:addButton("Carpet", function()
+section2:addButton("Carpet", function()
 	local clickdetector = workspace.bb.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
-section1:addButton("Snow Sword", function()
+section2:addButton("Snow Sword", function()
 	local clickdetector = workspace.bc.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
-section1:addButton("Snow Sword2", function()
+section2:addButton("Snow Sword2", function()
 	local clickdetector = workspace.bd.Part.ClickDetector
 
 fireclickdetector(clickdetector)
@@ -562,28 +563,28 @@ end)
 
 
 
-section1:addButton("Beach", function()
+section2:addButton("Beach", function()
 	local clickdetector = workspace.be.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
-section1:addButton("Boombox", function()
+section2:addButton("Boombox", function()
 	local clickdetector = workspace.bf.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
-section1:addButton("Speed", function()
+section2:addButton("Speed", function()
 	local clickdetector = workspace.bg.Part.ClickDetector
 
 fireclickdetector(clickdetector)
 end)
 
 
-section1:addButton("Jump", function()
+section2:addButton("Jump", function()
 	local clickdetector = workspace.bh.Part.ClickDetector
 
 fireclickdetector(clickdetector)
