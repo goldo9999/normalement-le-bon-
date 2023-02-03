@@ -198,6 +198,34 @@ notif("Loaded successfully! Created by Officier canard#0001", 5)
 end)
 
 
+section1:addButton("Lag all", function()
+
+local RunService = game:GetService("RunService")
+local function sit()
+    local args = {
+        [1] = 2,
+        [2] = 0,
+        [3] = false
+    }
+    game:GetService("ReplicatedStorage").ACS_Engine.itsukatenmanokurousagi.MedSys.Stance:FireServer(unpack(args))
+end
+local function stand()
+    local args = {
+        [1] = 0,
+        [2] = 0,
+        [3] = false
+    }
+    game:GetService("ReplicatedStorage").ACS_Engine.itsukatenmanokurousagi.MedSys.Stance:FireServer(unpack(args))
+end
+RunService.RenderStepped:Connect(function(step)
+    RunService.RenderStepped:Connect(function(step)
+        stand()
+        sit()
+    	end)
+	end)
+end)
+
+
 
 -- paramètres
 local page2 = Cheat:addPage("paramètres", 5012544693)
