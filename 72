@@ -1,20 +1,28 @@
 -- Charger la bibliothèque
-local GoldoCheatLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/goldo9999/NewCheat/refs/heads/main/library.lua')))()
+local AlcorCheatLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/goldo9999/NewCheat/refs/heads/main/library.lua')))()
 
+-- Liste des utilisateurs premium (ajoutez ici les IDs des joueurs premium)
+local PremiumUsers = {
+    1217990901, -- Remplacez par des UserIds réels
+    87654321
+}
+-- Vérifier si l'utilisateur est premium
+local LocalPlayer = game.Players.LocalPlayer
+local isPremium = table.find(PremiumUsers, LocalPlayer.UserId) ~= nil
 -- Notification de bienvenue
-GoldoCheatLib:MakeNotification({
+AlcorCheatLib:MakeNotification({
     Name = "Bienvenue!",
-    Content = "Bienvenue sur GoldoCheat!",
+    Content = "Bienvenue sur AlcorCheat!",
     Image = "rbxassetid://4483345998",
     Time = 5
 })
 
 -- Créer la fenêtre principale
-local Window = GoldoCheatLib:MakeWindow({
-    Name = "GoldoCheat",
+local Window = AlcorCheatLib:MakeWindow({
+    Name = "AlcorCheat",
     HidePremium = false,
     SaveConfig = true,
-    ConfigFolder = "GoldoCheat"
+    ConfigFolder = "AlcorCheat"
 })
 
 -- Ajouter un onglet Main
@@ -129,7 +137,7 @@ GiveSection:AddButton({
 
         game:GetService("ReplicatedStorage").buyEvent:FireServer(unpack(args))
 
-        GoldoCheatLib:MakeNotification({
+        AlcorCheatLib:MakeNotification({
             Name = "Item donné",
             Content = "Vous avez reçu une AK-47!",
             Image = "rbxassetid://4483345998",
@@ -149,7 +157,7 @@ GiveSection:AddButton({
 
         game:GetService("ReplicatedStorage").buyEvent:FireServer(unpack(args))
 
-        GoldoCheatLib:MakeNotification({
+        AlcorCheatLib:MakeNotification({
             Name = "Item donné",
             Content = "Vous avez reçu un USP!",
             Image = "rbxassetid://4483345998",
@@ -169,7 +177,7 @@ GiveSection:AddButton({
 
         game:GetService("ReplicatedStorage").buyEvent:FireServer(unpack(args))
 
-        GoldoCheatLib:MakeNotification({
+        AlcorCheatLib:MakeNotification({
             Name = "Item donné",
             Content = "Vous avez reçu une Molotov!",
             Image = "rbxassetid://4483345998",
@@ -189,7 +197,7 @@ GiveSection:AddButton({
 
         game:GetService("ReplicatedStorage").buyEvent:FireServer(unpack(args))
 
-        GoldoCheatLib:MakeNotification({
+        AlcorCheatLib:MakeNotification({
             Name = "Item donné",
             Content = "Vous avez reçu une Carte-L2!",
             Image = "rbxassetid://4483345998",
@@ -198,5 +206,49 @@ GiveSection:AddButton({
     end
 })
 
+-- Onglet Paramètres
+local SettingsTab = Window:MakeTab({
+	Name = "Settings",
+	Icon = "rbxassetid://4483345998"
+})
+
+local SettingsSection = SettingsTab:AddSection({
+	Name = "Settings"
+})
+
+-- Bouton pour détruire l'interface
+SettingsSection:AddButton({
+	Name = "Destroy UI",
+	Callback = function()
+        AlcorCheatLib:Destroy()
+  	end    
+})
+
+-- Ajouter une section Premium si l'utilisateur est premium
+if isPremium then
+    local PremiumTab = Window:MakeTab({
+        Name = "Premium",
+        Icon = "rbxassetid://4483345998"
+    })
+
+    local PremiumSection = PremiumTab:AddSection({
+        Name = "Exclusive Features"
+    })
+
+    PremiumSection:AddButton({
+        Name = "Bouton Premium",
+        Callback = function()
+            AlcorCheatLib:MakeNotification({
+                Name = "Fonction Premium",
+                Content = "Merci d'utiliser une fonction exclusive premium!",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    })
+else
+    SettingsSection:AddParagraph("Accès Premium", "Vous n'êtes pas un utilisateur premium. Veuillez contacter l'administrateur pour un accès premium.")
+end
+
 -- Initialiser l'interface
-GoldoCheatLib:Init()
+AlcorCheatLib:Init()
