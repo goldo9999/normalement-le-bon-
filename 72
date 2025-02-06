@@ -23,24 +23,22 @@ local JailTab = Window:MakeTab({
     Icon = "rbxassetid://4483345998"
 })
 
--- Ajouter une section Jail
-local JailSection = JailTab:AddSection({
-    Name = "Jail Actions"
+-- Ajouter une section Main
+local MainSection = JailTab:AddSection({
+    Name = "Main"
 })
 
 -- Ajouter un bouton "Jail All (avoir des menottes)"
-JailSection:AddButton({
+MainSection:AddButton({
     Name = "Jail All (avoir des menottes)",
     Callback = function()
         local teamName = "Classe-D"
-        local teamColor = BrickColor.new("Really red") -- Couleur locale pour l'équipe
+        local teamColor = BrickColor.new("Really red")
 
-        -- Fonction pour assigner tous les joueurs à la team "Classe-D" localement
         local function assignAllToClassD()
             local players = game:GetService("Players")
             local teamsService = game:GetService("Teams")
             
-            -- Vérifie si la team "Classe-D" existe, sinon la crée localement
             local classDTeam = teamsService:FindFirstChild(teamName)
             if not classDTeam then
                 classDTeam = Instance.new("Team")
@@ -49,20 +47,15 @@ JailSection:AddButton({
                 classDTeam.Parent = teamsService
             end
 
-            -- Parcourt tous les joueurs et les assigne à la team localement
             for _, player in pairs(players:GetPlayers()) do
                 if player and player.Team ~= classDTeam then
                     player.Team = classDTeam
                 end
             end
-
-            print("Tous les joueurs sont maintenant dans l'équipe '" .. teamName .. "' localement.")
         end
 
-        -- Exécute la fonction
         assignAllToClassD()
 
-        -- Exécute le script pour geler les joueurs
         local players = game:GetService("Players")
         local freezeEvent = game:GetService("ReplicatedStorage").ArrestSystem:FindFirstChild("FreezeUser")
 
@@ -87,6 +80,34 @@ JailSection:AddButton({
                 end
             else
                 warn("Le joueur " .. player.Name .. " n'a pas de personnage actif.")
+            end
+        end
+    end
+})
+
+-- Ajouter un bouton "Pause Parts en boucle"
+MainSection:AddButton({
+    Name = "Poser des Parts en boucle",
+    Callback = function()
+        while true do
+            game:GetService('ReplicatedStorage').ACS_Engine.Events.Refil:FireServer(game.Players.LocalPlayer.Character.ACS_Client.Kit.Fortifications, -99999999)
+            
+            for i = 1, 10 do
+                local target = game:GetService('Players').LocalPlayer 
+                local cFrame = CFrame.new(0,0,0)
+                local Size = {
+                    X = 5000,
+                    Y = 5000,
+                    Z = 5000
+                }
+                
+                for _,v in next, game.ReplicatedStorage:GetDescendants() do
+                    if v.Name == 'Breach' and v:IsA('RemoteFunction') then
+                        v:InvokeServer(3, {Fortified={}, Destroyable=workspace}, CFrame.new(), CFrame.new(), {CFrame=target.Character.HumanoidRootPart.CFrame*cFrame, Size=Size})
+                    end
+                end
+                
+                wait(0.050)
             end
         end
     end
@@ -131,6 +152,26 @@ GiveSection:AddButton({
         GoldoCheatLib:MakeNotification({
             Name = "Item donné",
             Content = "Vous avez reçu un USP!",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
+})
+
+-- Ajouter un bouton pour donner une Molotov
+GiveSection:AddButton({
+    Name = "Give Molotov",
+    Callback = function()
+        local args = {
+            [1] = 0,
+            [2] = "Molotov"
+        }
+
+        game:GetService("ReplicatedStorage").buyEvent:FireServer(unpack(args))
+
+        GoldoCheatLib:MakeNotification({
+            Name = "Item donné",
+            Content = "Vous avez reçu une Molotov!",
             Image = "rbxassetid://4483345998",
             Time = 5
         })
